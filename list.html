@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="assets/slick-theme.css"/>
+    <link rel="stylesheet" href="assets/slick.css"/>
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/list.css">
+</head>
+<body>
+    
+
+  <div id="header"></div>
+
+  <div class="container-fluid mt-4">
+    <div class="row">
+  
+      <!-- FILTER -->
+      <aside class="col-lg-3 col-md-4 mb-4">
+        <div class="filter-box">
+  
+          <h5>Filter</h5>
+  
+          <label>Category</label>
+          <select id="filterCategory" class="form-control mb-2"></select>
+  
+          <label>Subcategory</label>
+          <select id="filterSubcategory" class="form-control mb-3"></select>
+  
+          <label>Price</label>
+          <input type="range" id="filterPrice" min="0" max="5000" step="100">
+          <div class="mb-3"><span id="priceValue">₹5000</span></div>
+  
+          <label class="mb-2 d-block">Discount</label>
+          <div id="discountFilters"></div>
+          <button onclick="applyFilter()" class="btn btn-primary">
+            Apply Filter
+          </button>
+  
+        </div>
+      </aside>
+  
+      <!-- PRODUCTS -->
+      <section class="col-lg-9 col-md-8">
+        <div class="row" id="cards"></div>
+      </section>
+  
+    </div>
+  </div>
+  
+  <div id="footer"></div>
+  
+
+    <script src="assets/jquery-3.2.1.min.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+    <script src="assets/popper.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/list.js"></script>
+
+
+    <script>
+      $(function(){
+          $("#header").load("header.html", function(){
+              updateUserMenu();   // call AFTER header is ready
+          });
+          restoreCartPopup();
+      });
+    </script>
+       <script>
+        $(function(){
+            $("#footer").load("footer.html");
+        });
+      </script>
+</body>
+</html>

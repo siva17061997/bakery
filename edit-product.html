@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Product</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h3 class="mb-4">✏️ Edit Product</h3>
+    
+        <form id="editProductForm" enctype="multipart/form-data">
+    
+            <input type="hidden" id="productId">
+    
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" id="name" class="form-control" required>
+            </div>
+    
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Category</label>
+                    <input type="text" id="category" class="form-control" required>
+                </div>
+    
+                <div class="form-group col-md-6">
+                    <label>Subcategory</label>
+                    <input type="text" id="subcategory" class="form-control" required>
+                </div>
+            </div>
+    
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>Price (₹)</label>
+                    <input type="number" id="price" class="form-control" required>
+                </div>
+    
+                <div class="form-group col-md-4">
+                    <label>MRP (₹)</label>
+                    <input type="number" id="mrp" class="form-control">
+                </div>
+    
+                <div class="form-group col-md-4">
+                    <label>Discount (%)</label>
+                    <input type="number" id="discount" class="form-control">
+                </div>
+            </div>
+    
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label>GST (%)</label>
+                    <input type="number" id="gst" class="form-control">
+                </div>
+    
+                <div class="form-group col-md-4">
+                    <label>Qty Type</label>
+                    <select id="qtyType" class="form-control">
+                        <option value="KG">KG</option>
+                        <option value="COUNT">COUNT</option>
+                    </select>
+                </div>
+    
+                <div class="form-group col-md-4">
+                    <label>Quantity</label>
+                    <input type="number" id="quantity" class="form-control">
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label>Current Image</label><br>
+                <img id="previewImage" src="" width="140" class="img-thumbnail">
+            </div>
+    
+            <div class="form-group">
+                <label>Change Image (optional)</label>
+                <input type="file" id="image" class="form-control-file">
+            </div>
+    
+            <button type="submit" class="btn btn-success">
+                ✅ Update Product
+            </button>
+    
+            <a href="admin-products.html" class="btn btn-secondary ml-2">
+                Cancel
+            </a>
+    
+        </form>
+    </div>
+    
+
+<script src="js/config.js"></script>
+<script src="js/edit-product.js"></script>
+</body>
+</html>

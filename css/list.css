@@ -1,0 +1,84 @@
+.filter-box {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+  }
+  
+  .product-card img {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .price {
+    font-weight: bold;
+    color: #28a745;
+  }
+  
+  .mrp {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14px;
+  }
+  
+  .qty-box {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .qty-box button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  
+  .qty-box input {
+    width: 45px;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  
+  /* CARD SPACING + ANIMATION */
+  .animate-card {
+    animation: fadeUp 0.5s ease;
+  }
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .product-card img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 6px 6px 0 0;
+  }
+  
+  @media (min-width: 480px) and (max-width: 767px)
+{
+    .product-card img {
+        width: 60%;
+        margin: auto;
+    }
+}
+
+.product-card {
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 
+      0 8px 30px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 
+      0 16px 40px rgba(0, 0, 0, 0.18);
+  }

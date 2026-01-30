@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin – All Orders</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="assets/bootstrap.min.css">
+<link rel="stylesheet" href="css/admin-orders.css">
+</head>
+
+<body>
+
+<div class="container-fluid mt-4">
+
+  <!-- ===============================
+       PAGE TITLE
+  ================================ -->
+  <h4 class="mb-3">📊 User Order History</h4>
+
+  <!-- ===============================
+       FILTER BAR
+  ================================ -->
+  <div class="card mb-3">
+    <div class="card-body">
+      <div class="row g-2">
+
+        <div class="col-md-3 col-sm-6">
+          <input type="text" id="filterName" class="form-control" placeholder="Search Name">
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <input type="text" id="filterMobile" class="form-control" placeholder="Search Mobile">
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <input type="text" id="filterCategory" class="form-control" placeholder="Search Sub-Category">
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <input type="date" id="filterDate" class="form-control">
+        </div>
+
+        <div class="col-12 text-end mt-2">
+          <button class="btn btn-primary btn-sm me-2" onclick="applyFilters()">Apply</button>
+          <button class="btn btn-secondary btn-sm" onclick="clearFilters()">Clear</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===============================
+       QUICK FILTERS + EXPORT
+  ================================ -->
+  <div class="d-flex flex-wrap gap-2 mb-3 align-items-center">
+    <button class="btn btn-outline-success btn-sm" onclick="filterToday()">Today</button>
+    <button class="btn btn-outline-primary btn-sm" onclick="filterYesterday()">Yesterday</button>
+    <button class="btn btn-outline-dark btn-sm" onclick="filterLast7Days()">Last 7 Days</button>
+
+    <div class="ms-auto">
+      <button class="btn btn-outline-info btn-sm" onclick="exportCSV()">
+        ⬇ Export CSV
+      </button>
+    </div>
+  </div>
+
+  <!-- ===============================
+       SUMMARY BAR
+  ================================ -->
+  <div class="row mb-3">
+    <div class="col-md-4 col-sm-12 mb-2">
+      <div class="alert alert-primary mb-0 text-center">
+        Total Orders: <b id="sumOrders">0</b>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-12 mb-2">
+      <div class="alert alert-warning mb-0 text-center">
+        Total Quantity: <b id="sumQty">0</b>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-12 mb-2">
+      <div class="alert alert-success mb-0 text-center">
+        Total Amount: ₹<b id="sumAmount">0.00</b>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===============================
+       TABLE
+  ================================ -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Order Date</th>
+          <th>Name</th>
+          <th>Mobile</th>
+          <th>Sub-Category</th>
+          <th>Qty</th>
+          <th>Total (₹)</th>
+          <th>Payment</th>
+        </tr>
+      </thead>
+      <tbody id="orderTableBody">
+        <tr>
+          <td colspan="8" class="text-center">Loading...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- ===============================
+     SCRIPTS
+================================ -->
+<script src="assets/jquery-3.2.1.min.js"></script>
+<script src="assets/popper.min.js"></script>
+<script src="assets/bootstrap.min.js"></script>
+
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/admin-orders.js"></script>
+
+</body>
+</html>

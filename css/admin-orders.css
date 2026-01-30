@@ -1,0 +1,66 @@
+table {
+    font-size: 14px;
+  }
+  
+  @media (max-width: 768px) {
+    table {
+      font-size: 13px;
+    }
+  
+    th, td {
+      white-space: nowrap;
+    }
+  }
+  
+
+  table {
+    font-size: 14px;
+  }
+  
+  .card {
+    border-radius: 6px;
+  }
+  
+  @media (max-width: 768px) {
+    th, td {
+      white-space: nowrap;
+      font-size: 13px;
+    }
+  }
+  
+  /* ===============================
+   TODAY ORDER HIGHLIGHT
+================================ */
+.today-order {
+  background-color: #e6fffa !important;
+  border-left: 4px solid #28a745;
+}
+
+/* Mobile spacing */
+@media (max-width: 768px) {
+  .today-order td {
+    font-size: 14px;
+  }
+}
+
+
+/* ===============================
+   TODAY ORDER HIGHLIGHT (ADMIN)
+================================ */
+.today-order {
+  background-color: #e6fffa !important;
+  border-left: 4px solid #28a745;
+}
+
+.today-badge {
+  font-size: 11px;
+  margin-left: 6px;
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+  .today-order td {
+    font-size: 13px;
+  }
+}
+

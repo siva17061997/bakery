@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - CakeShop</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="assets/slick-theme.css"/>
+    <link rel="stylesheet" href="assets/slick.css"/>
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-birthday-cake"></i> CakeShop
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                            Cakes <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#"><i class="fas fa-cake-candles"></i> Chocolate</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-cake-candles"></i> Vanilla</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-cake-candles"></i> Red Velvet</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-cookie-bite"></i> Cookies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-fire"></i> Chips</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-gem"></i> Pastries</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                            <i class="fas fa-user"></i> My Account
+                        </a>
+                        <div class="dropdown-menu">
+                            <h6 class="dropdown-header" id="userName"></h6>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" id="userEmail"></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="#" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="tooltip" title="Cart (0)">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> -->
+<div class="wrapper">
+    <div id="header"></div>
+
+    <div id="bakeryCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#bakeryCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#bakeryCarousel" data-slide-to="1"></li>
+        <li data-target="#bakeryCarousel" data-slide-to="2"></li>
+      </ol>
+    
+      <div class="carousel-inner">
+    
+        <div class="carousel-item active">
+          <div class="banner-wrap">
+            <img src="images/ee.jpg" alt="Butterscotch Cake Banner">
+          </div>
+        </div>
+    
+        <div class="carousel-item">
+          <div class="banner-wrap">
+            <img src="images/ff.png" alt="Butterscotch Cake Banner">
+          </div>
+        </div>
+    
+        <div class="carousel-item">
+          <div class="banner-wrap">
+            <img src="images/ee.png" alt="Butterscotch Cake Banner">
+          </div>
+        </div>
+    
+      </div>
+    </div>
+    
+      
+<br>
+
+<section class="discount-section py-2">
+  <div class="container">
+    <h3 class="mb-4">Discount items</h3>
+
+    <div class="row">
+
+      <!-- ITEM 1 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+        <a href="list.html" class="discount-link" title="Butter Cookies">
+          <div class="discount-card">
+            <span class="discount-badge">20% OFF</span>
+            <img src="images/d.jpeg" alt="Butter Cookies" title="Butter Cookies">
+            <h6>Butter Cookies</h6>
+          </div>
+        </a>
+      </div>
+
+      <!-- ITEM 2 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+        <a href="list.html" class="discount-link" title="Chocolate Chip Cookies">
+          <div class="discount-card">
+            <span class="discount-badge">25% OFF</span>
+            <img src="images/b.png" alt="Chocolate Chip Cookies" title="Chocolate Chip Cookies">
+            <h6>Chocolate Chip Cookies</h6>
+          </div>
+        </a>
+      </div>
+
+      <!-- ITEM 3 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+        <a href="list.html" class="discount-link" title="Ginger Cookies">
+          <div class="discount-card">
+            <span class="discount-badge">15% OFF</span>
+            <img src="images/e.jpeg" alt="Ginger Cookies" title="Ginger Cookies">
+            <h6>Ginger Cookies</h6>
+          </div>
+        </a>
+      </div>
+
+      <!-- ITEM 4 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+        <a href="list.html" class="discount-link" title="Rusks">
+          <div class="discount-card">
+            <span class="discount-badge">30% OFF</span>
+            <img src="images/g.jpeg" alt="Rusks" title="Rusks">
+            <h6>Rusks</h6>
+          </div>
+        </a>
+      </div>
+
+      <!-- ROW 2 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+        <a href="list.html" class="discount-link" title="Chocolate Cake">
+          <div class="discount-card">
+            <span class="discount-badge">40% OFF</span>
+            <img src="images/n.png" alt="Chocolate Cake" title="Chocolate Cake">
+            <h6>Chocolate Cake</h6>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+        <a href="list.html" class="discount-link" title="Brownies">
+          <div class="discount-card">
+            <span class="discount-badge">35% OFF</span>
+            <img src="images/h.jpeg" alt="Brownies" title="Brownies">
+            <h6>Brownies</h6>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+        <a href="list.html" class="discount-link" title="Cheesecake Bars">
+          <div class="discount-card">
+            <span class="discount-badge">20% OFF</span>
+            <img src="images/i.jpeg" alt="Cheesecake Bars" title="Cheesecake Bars">
+            <h6>Cheesecake Bars</h6>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+        <a href="list.html" class="discount-link" title="Chess Bars">
+          <div class="discount-card">
+            <span class="discount-badge">25% OFF</span>
+            <img src="images/j.jpeg" alt="Chess Bars" title="Chess Bars">
+            <h6>Chess Bars</h6>
+          </div>
+        </a>
+      </div>
+
+      <!-- ROW 3 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+        <a href="list.html" class="discount-link" title="Mixture">
+          <div class="discount-card">
+            <span class="discount-badge">10% OFF</span>
+            <img src="images/k.jpeg" alt="Mixture" title="Mixture">
+            <h6>Mixture</h6>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+        <a href="list.html" class="discount-link" title="Chips">
+          <div class="discount-card">
+            <span class="discount-badge">20% OFF</span>
+            <img src="images/f.jpeg" alt="Chips" title="Chips">
+            <h6>Chips</h6>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+        <a href="list.html" class="discount-link" title="Crackers">
+          <div class="discount-card">
+            <span class="discount-badge">15% OFF</span>
+            <img src="images/l.jpeg" alt="Crackers" title="Crackers">
+            <h6>Crackers</h6>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+        <a href="list.html" class="discount-link" title="Breadsticks">
+          <div class="discount-card">
+            <span class="discount-badge">30% OFF</span>
+            <img src="images/m.jpeg" alt="Breadsticks" title="Breadsticks">
+            <h6>Breadsticks</h6>
+          </div>
+        </a>
+      </div>
+
+      <!-- ROW 4 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+        <a href="list.html" class="discount-link" title="Veg Puff">
+          <div class="discount-card">
+            <span class="discount-badge">20% OFF</span>
+            <img src="images/o.jpeg" alt="Veg Puff" title="Veg Puff">
+            <h6>Veg Puff</h6>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+        <a href="list.html" class="discount-link" title="Jam Roll">
+          <div class="discount-card">
+            <span class="discount-badge">25% OFF</span>
+            <img src="images/p.jpeg" alt="Jam Roll" title="Jam Roll">
+            <h6>Jam Roll</h6>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+        <a href="list.html" class="discount-link" title="Cream Roll">
+          <div class="discount-card">
+            <span class="discount-badge">15% OFF</span>
+            <img src="images/r.jpeg" alt="Cream Roll" title="Cream Roll">
+            <h6>Cream Roll</h6>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-4">
+        <a href="list.html" class="discount-link" title="Macarons">
+          <div class="discount-card">
+            <span class="discount-badge">30% OFF</span>
+            <img src="images/c.jpeg" alt="Macarons" title="Macarons">
+            <h6>Macarons</h6>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="most-sold-section py-2">
+  <div class="container">
+    <h3 class="mb-4">Most Sold Items</h3>
+
+    <div class="row">
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+        <a href="#" class="poster-link" title="Butter Cookies">
+          <div class="poster-img-wrap">
+            <img src="images/aa.jpeg"
+                 alt="Butter Cookies - Most Sold Item"
+                 title="Butter Cookies">
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+        <a href="#" class="poster-link" title="Chocolate Chip Cookies">
+          <div class="poster-img-wrap">
+            <img src="images/bb.jpeg"
+                 alt="Chocolate Chip Cookies - Most Sold Item"
+                 title="Chocolate Chip Cookies">
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+        <a href="#" class="poster-link" title="Brownies">
+          <div class="poster-img-wrap">
+            <img src="images/cc.jpeg"
+                 alt="Brownies - Most Sold Item"
+                 title="Brownies">
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-4">
+        <a href="#" class="poster-link" title="Macarons">
+          <div class="poster-img-wrap">
+            <img src="images/dd.jpeg"
+                 alt="Macarons - Most Sold Item"
+                 title="Macarons">
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<section>
+    
+  <h2 class="text-center mb-4">Customer Testimonials</h2>
+  <div class="card-slide-testimonial ">
+    <div class="inner-gap">
+      <div class="card">
+        <div class="card-inner">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Bakery Customer">
+        </div>
+        <div class="mock-inter">
+          <h3>Fresh & Tasty</h3>
+          <p>The cookies and cakes are always fresh and delicious. My family loves them!</p>
+          <a href="#" style="color: #ff781a;">READ MORE</a>
+        </div>
+      </div>
+  </div>
+
+    <div class="inner-gap">
+      <div class="card">
+        <div class="card-inner">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Bakery Customer">
+        </div>
+        <div class="mock-inter">
+          <h3>Best Bakery in Town</h3>
+          <p>Amazing quality and great variety of snacks. Highly recommended bakery.</p>
+          <a href="#" style="color: #ff781a;">READ MORE</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="inner-gap">
+      <div class="card">
+        <div class="card-inner">
+          <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Bakery Customer">
+        </div>
+        <div class="mock-inter">
+          <h3>Healthy & Tasty</h3>
+          <p>The millet breads and snacks are healthy and super tasty. Perfect choice!</p>
+          <a href="#" style="color: #ff781a;">READ MORE</a>
+        </div>
+      </div>
+  </div>
+
+  <div class="inner-gap">
+    <div class="card">
+      <div class="card-inner">
+        <img src="https://randomuser.me/api/portraits/women/30.jpg" alt="Bakery Customer">
+      </div>
+      <div class="mock-inter">
+        <h3>Great Service</h3>
+        <p>Friendly staff and quick service. The brownies are my absolute favorite.</p>
+        <a href="#" style="color: #ff781a;">READ MORE</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-gap">
+    <div class="card">
+      <div class="card-inner">
+        <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Bakery Customer">
+      </div>
+      <div class="mock-inter">
+        <h3>Perfect for snacks</h3>
+        <p>From snacks to cakes, everything is perfect for celebrations and daily needs.</p>
+        <a href="#" style="color: #ff781a;">READ MORE</a>
+      </div>
+    </div>
+</div>
+
+  </div>
+</section>
+
+  <br>
+
+<section>
+  <div class="license-banner"></div>
+
+</section>
+<br>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6489.981624726691!2d77.56601923778719!3d12.977345204206525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae16052b7ceb8b%3A0xf9db1b29f78b9f96!2sMajestic%2C%20Bengaluru%2C%20Karnataka!5e1!3m2!1sen!2sin!4v1768914526477!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      
+
+<a href="https://wa.me/91987654321066666666"
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener"
+   title="Chat with us on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+
+    <div id="footer"></div>
+</div>
+
+  
+    <script src="assets/jquery-3.2.1.min.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+    <script src="assets/popper.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="assets/mmenu.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="assets/slick.min.js"></script>
+    <script src="js/index.js"></script>
+    
+
+    <script>
+        $(function(){
+            $("#header").load("header.html", function(){
+                updateUserMenu();   // call AFTER header is ready
+            });
+            restoreCartPopup();
+        });
+      </script>
+       <script>
+        $(function(){
+            $("#footer").load("footer.html");
+        });
+      </script>
+      
+</body>
+</html>

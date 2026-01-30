@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - CakeShop</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-crown"></i> Admin Panel
+            </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#adminNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="adminNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                            <i class="fas fa-user-shield"></i> Admin
+                        </a>
+                        <div class="dropdown-menu">
+                            <h6 class="dropdown-header" id="adminName"></h6>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" id="adminEmail"></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" onclick="logout()">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+
+<!-- ================= ADD PRODUCT FORM ================= -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+
+            <div class="card shadow">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0">➕ Add Product (Admin Only)</h5>
+                </div>
+
+                <div class="card-body">
+                    <form id="productForm" enctype="multipart/form-data">
+
+                        <!-- NAME -->
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            <input type="text" name="name" class="form-control" required>
+                        </div>
+
+                        <!-- CATEGORY -->
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select name="category" id="category"
+                                    class="form-control"
+                                    onchange="loadSubCategories()" required>
+                                <option value="">-- Select --</option>
+                                <option>Cakes</option>
+                                <option>Cookies & Biscuits</option>
+                                <option>Pastries</option>
+                                <option>Bars</option>
+                                <option>Savory Snacks</option>
+                                <option>Millet-based</option>
+                                <option>Savory Pastries</option>
+                                <option>Whole Grain</option>
+                            </select>
+                        </div>
+
+                        <!-- SUBCATEGORY -->
+                        <div class="form-group">
+                            <label>Subcategory</label>
+                            <select name="subcategory" id="subcategory"
+                                    class="form-control" required>
+                                <option value="">-- Select --</option>
+                            </select>
+                        </div>
+
+                        <!-- PRICE + MRP -->
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Price (₹)</label>
+                                <input type="number" name="price" class="form-control" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>MRP (₹)</label>
+                                <input type="number" name="mrp" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <!-- DISCOUNT + GST -->
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>Discount (%)</label>
+                                <input type="number" name="discount" value="0" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>GST (%)</label>
+                                <input type="number" name="gst" value="5" class="form-control">
+                            </div>
+                        </div>
+
+                        <!-- QTY TYPE -->
+                        <div class="form-group">
+                            <label>Quantity Type</label>
+                            <select name="qtyType" class="form-control" required>
+                                <option value="KG">KG</option>
+                                <option value="COUNT">COUNT</option>
+                            </select>
+                        </div>
+
+                        <!-- 🔥 REQUIRED FIX -->
+                        <!-- QUANTITY -->
+                        <div class="form-group">
+                            <label>Quantity</label>
+                            <input type="number"
+                                   name="quantity"
+                                   class="form-control"
+                                   value="1"
+                                   min="1"
+                                   required>
+                        </div>
+
+                        <!-- IMAGE -->
+                        <div class="form-group">
+                            <label>Product Image</label>
+                            <input type="file" name="image"
+                                   class="form-control-file"
+                                   accept="image/*"
+                                   required>
+                        </div>
+
+                        <!-- SUBMIT -->
+                        <button type="submit" class="btn btn-success btn-block">
+                            <i class="fas fa-save"></i> Save Product
+                        </button>
+
+                        <a href="admin-products.html"
+                           class="btn btn-secondary btn-block mt-2">
+                            Manage Products
+                        </a>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+      
+      
+    
+   
+  
+
+    <script src="assets/jquery-3.2.1.min.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+    <script src="assets/popper.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/admin.js"></script>
+   
+</body>
+</html>

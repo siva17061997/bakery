@@ -1,0 +1,205 @@
+.inner-gap{
+    margin: 12px 12px;
+  }
+  
+    .card {
+      /* width: 390px; */
+      margin: auto;
+      border: none !important;
+    }
+  
+    .mock-inter {
+      background-color: #ffddb6;
+      padding: 50px 32px;
+      color: white;
+      position: relative;
+      top: -41px;
+      text-align: center;
+      border-radius: 25px;
+    }
+  
+    .card-inner {
+      text-align: center;
+    }
+  
+    .card-inner img {
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      text-align: center;
+      position: relative;
+      z-index: 4;
+      margin: auto;
+    }
+    .heading-page{
+      margin-left: 64px;
+      margin-bottom: 32px;
+      margin-top: 22px;
+    }
+  .card-slide-testimonial  .slick-prev, .slick-next {
+      top:20px !important;
+      z-index: 10 !important;
+    }
+  
+   .card-slide-testimonial .slick-prev {
+    right: 72px !important;
+      left: auto !important;
+      background-color:#d3770f !important;
+      width: 52px;
+      height: 44px;
+      /* padding: 2px; */
+      border-radius: 31px;
+    
+    }
+  
+   .card-slide-testimonial .slick-next {
+      right: 10px !important;
+      background-color:#d3770f !important;
+    
+      width: 52px;
+      height: 44px;
+      /* padding: 2px; */
+      border-radius: 31px;
+    }
+  
+    .slick-prev:before {
+      font-family: "Font Awesome 5 Free" !important;
+      font-weight: 600;
+      content: "\f104" !important;
+  
+    }
+     .slick-next:before {
+      font-family: "Font Awesome 5 Free" !important;
+      font-weight: 600;
+      content: "\f105" !important;
+      
+    }
+
+
+    .license-banner {
+      width: 100%;
+      max-width: 1400px;
+      aspect-ratio: 1400 / 522;   /* keeps exact ratio */
+      background-image: url("../images/certi.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .discount-card {
+      position: relative;
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: 0.3s ease;
+      height: 100%;
+    }
+    
+    .discount-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;   /* keeps image square */
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .discount-card h6 {
+      margin: 0;
+      font-weight: 600;
+      color: #5d4037;
+    }
+    
+    .discount-card:hover {
+      transform: translateY(-6px);
+    }
+    
+    .discount-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #d84315;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 20px;
+    }
+    .discount-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .poster-link {
+      display: block;
+    }
+    
+    /* WRAPPER CONTROLS HEIGHT */
+    .poster-img-wrap {
+      width: 100%;
+      padding-top: 130%;           /* controls height (poster look) */
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+    
+    /* IMAGE FILLS WRAPPER */
+    .poster-img-wrap img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;           /* no stretch */
+      transition: transform 0.3s ease;
+    }
+    
+    /* HOVER EFFECT */
+    .poster-link:hover img {
+      transform: scale(1.05);
+    }
+/* BANNER CONTAINER */
+.banner-wrap {
+  width: 100%;
+  aspect-ratio: 1400 / 600;   /* banner ratio */
+  background: #f5f5f5;        /* optional */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* IMAGE */
+.banner-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* FULL IMAGE, NO CROP */
+}
+        
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;   /* 👈 changed */
+  width: 55px;
+  height: 55px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  z-index: 9999;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+

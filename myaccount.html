@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Account</title>
+
+<link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+<div class="wrapper">
+<div id="header"></div>
+
+<div class="container-fluid mt-5">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      My Account
+    </div>
+    <div class="card-body">
+      <p><strong>Name:</strong> <span id="accName"></span></p>
+      <p><strong>Email:</strong> <span id="accEmail"></span></p>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-4">
+  <h4 class="mb-3">🧾 My Orders</h4>
+
+  <div class="table-responsive">
+    <table class="table table-bordered align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Date</th>
+          <th>Items</th>
+          <th>Total (₹)</th>
+          <th>Payment</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="orders">
+        <tr>
+          <td colspan="6" class="text-center">Loading orders...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<br><br>
+<div id="footer"></div>
+</div>
+  <script src="assets/jquery-3.2.1.min.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+    <script src="assets/popper.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+ <script src="js/cart.js"></script>
+ <script src="/js/order-history.js"></script>
+
+ <script>
+  $(function(){
+      $("#header").load("header.html", function(){
+          updateUserMenu();   // call AFTER header is ready
+      });
+      restoreCartPopup();
+  });
+</script>
+ <script>
+  $(function(){
+      $("#footer").load("footer.html");
+  });
+</script>
+<script>
+ 
+
+  let user = JSON.parse(localStorage.getItem("user"));
+  if(!user){
+      window.location.href="login.html";
+  } else {
+      $("#accName").text(user.fullName);
+      $("#accEmail").text(user.email);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP - CakeShop</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body{
+            min-height:100vh;
+            background: linear-gradient(135deg, #ffe29f, #ffa500);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        </style>
+        </head>
+        
+        <body>
+        
+        <div class="col-md-4 col-sm-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-4 text-center">
+        
+                    <h4 class="font-weight-bold mb-3">
+                        <i class="fas fa-shield-alt"></i> Verify Email
+                    </h4>
+        
+                    <p class="text-muted">Enter the 6-digit OTP sent to your Gmail</p>
+        
+                    <input type="hidden" id="email">
+        
+                    <div class="form-group">
+                        <input type="text"
+                               id="otp"
+                               maxlength="6"
+                               class="form-control form-control-lg text-center"
+                               placeholder="Enter OTP"
+                               required>
+                    </div>
+        
+                    <button class="btn btn-warning btn-block text-white font-weight-bold" onclick="verifyOtp()">
+                        Verify OTP
+                    </button>
+        
+                </div>
+            </div>
+        </div>
+        
+    <script src="assets/jquery-3.2.1.min.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+    <script src="assets/popper.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/otp.js"></script>
+</body>
+</html>

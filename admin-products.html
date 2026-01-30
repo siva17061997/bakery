@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Products</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <span class="navbar-brand">👑 Admin Panel</span>
+        <button class="btn btn-outline-light btn-sm" onclick="logout()">Logout</button>
+    </div>
+</nav>
+
+<!-- ================= CONTENT ================= -->
+<div class="container mt-4">
+
+    <h3 class="mb-3">Admin – Product Management</h3>
+
+    <!-- ================= FILTER BAR ================= -->
+    <div class="row mb-3">
+        <div class="col-md-4 mb-2">
+            <input type="text"
+                   id="searchInput"
+                   class="form-control"
+                   placeholder="Search by name / category / subcategory">
+        </div>
+
+        <div class="col-md-3 mb-2">
+            <select id="filterCategory" class="form-control">
+                <option value="">All Categories</option>
+            </select>
+        </div>
+
+        <div class="col-md-3 mb-2">
+            <select id="filterSubcategory" class="form-control">
+                <option value="">All Subcategories</option>
+            </select>
+        </div>
+
+        <div class="col-md-2 mb-2">
+            <button class="btn btn-dark btn-block" onclick="applyFilter()">
+                Apply
+            </button>
+        </div>
+    </div>
+
+    <!-- ================= PRODUCT TABLE ================= -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Subcategory</th>
+                    <th>Price (₹)</th>
+                    <th>Qty</th>
+                    <th style="width:140px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="adminProducts">
+                <!-- JS will inject rows here -->
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="assets/jquery-3.2.1.min.js"></script>
+<script src="assets/bootstrap.min.js"></script>
+<script src="assets/popper.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/admin-products.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+.footer-bg{
+    background:linear-gradient(135deg,#FA8112,#ED985F);
+  }
+  
+  .footer-links{
+    list-style:none;
+    padding:0;
+  }
+  
+  .footer-links li{
+    margin:6px 0;
+  }
+  
+  .footer-links a{
+    color:#ffffff;
+    text-decoration:none;
+    font-size:14px;
+  }
+  
+  .footer-links a:hover{
+    color:#ffffff;
+  }
+  
+  .social-icons a{
+    color:#fff;
+    font-size:18px;
+    margin-right:12px;
+  }
+  
+  .social-icons a:hover{
+    color:#ffffff;
+  }
+  

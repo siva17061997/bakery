@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Checkout</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="assets/bootstrap.min.css">
+<link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+
+<div id="header"></div>
+
+<div class="container mt-4">
+  <div class="row">
+
+    <!-- LEFT -->
+    <div class="col-md-7">
+      <h4>Delivery Details</h4>
+
+      <div class="form-group">
+        <label>Name</label>
+        <input id="name" class="form-control" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input id="email" class="form-control" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Mobile</label>
+        <input id="mobile" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Pin Code</label>
+        <input id="pincode" class="form-control" maxlength="6">
+      </div>
+
+      <div class="form-group">
+        <label>Address</label>
+        <textarea id="address" class="form-control"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Delivery Type</label>
+        <select id="deliveryType" class="form-control">
+          <option value="STANDARD">Standard Delivery</option>
+          <option value="EXPRESS">Express Delivery</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Payment Method</label>
+        <input class="form-control" value="Cash On Delivery" readonly>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="col-md-5">
+      <h4>Your Order</h4>
+      <div id="orderItems"></div>
+
+      <hr>
+
+      <div class="d-flex justify-content-between">
+        <span>Subtotal</span>
+        <strong id="subtotal">₹0</strong>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <span>GST</span>
+        <strong id="gst">₹0</strong>
+      </div>
+
+      <!-- <div class="d-flex justify-content-between">
+        <span>Delivery</span>
+        <strong id="delivery">₹0</strong>
+      </div> -->
+
+      <hr>
+
+      <div class="d-flex justify-content-between">
+        <strong>Total</strong>
+        <strong id="total">₹0</strong>
+      </div>
+
+      <button id="placeOrderBtn" class="btn btn-success w-100 mt-3">
+        Place Order
+      </button>
+      
+    </div>
+
+  </div>
+</div>
+
+    <script src="assets/jquery-3.2.1.min.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+    <script src="assets/popper.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+    <script>
+        $(function(){
+            $("#header").load("header.html", function(){
+                updateUserMenu();   // call AFTER header is ready
+            });
+            restoreCartPopup();
+        });
+      </script>
+       <script>
+        $(function(){
+            $("#footer").load("footer.html");
+        });
+      </script>
+
+</body>
+</html>
