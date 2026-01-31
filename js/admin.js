@@ -1,7 +1,7 @@
 /* ===============================
    GLOBALS (from config.js)
 ================================ */
-const PRODUCT_API = "https://bakery-backend-hq21.onrender.com/api/products";
+const PRODUCT_API = "https://bakery-backend-thni.onrender.com/api/products";
 const token = localStorage.getItem("accessToken");
 
 /* ===============================

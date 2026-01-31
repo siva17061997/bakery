@@ -2,7 +2,7 @@
    CHECKOUT JS – FINAL SYNCED
 ================================ */
 
-const ORDER_BASE_URL = "https://bakery-backend-hq21.onrender.com/api/orders";
+const ORDER_BASE_URL = "https://bakery-backend-thni.onrender.com/api/orders";
 
 document.addEventListener("DOMContentLoaded", () => {
 
