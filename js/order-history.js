@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ===============================
        FETCH USER ORDERS
     ================================ */
-    fetch("http://localhost:8080/api/orders/my", {
+    fetch("https://bakery-backend-hq21.onrender.com/api/orders/my", {
       headers: {
         Authorization: "Bearer " + token
       }

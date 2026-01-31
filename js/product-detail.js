@@ -15,8 +15,8 @@ function getCartQty(productId) {
 /* ===============================
    CONSTANTS
 ================================ */
-const PRODUCT_API = "http://localhost:8080/api/products";
-const IMAGE_BASE = "http://localhost:8080";
+const PRODUCT_API = "https://bakery-backend-hq21.onrender.com/api/products";
+const IMAGE_BASE = "https://bakery-backend-hq21.onrender.com";
 
 const params = new URLSearchParams(window.location.search);
 const productId = Number(params.get("id"));

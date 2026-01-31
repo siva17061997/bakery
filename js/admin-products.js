@@ -1,8 +1,8 @@
 /* ===============================
    CONFIG (NO redeclaration)
 ================================ */
-const PRODUCTS_API = "http://localhost:8080/api/products";
-const IMAGE_BASE = "http://localhost:8080";
+const PRODUCTS_API = "https://bakery-backend-hq21.onrender.com/api/products";
+const IMAGE_BASE = "https://bakery-backend-hq21.onrender.com";
 // const token = localStorage.getItem("accessToken");
 // const currentUser = JSON.parse(localStorage.getItem("user") || "null");
 

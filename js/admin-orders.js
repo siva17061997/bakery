@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===============================
      LOAD ADMIN ORDERS
   ================================ */
-  fetch("http://localhost:8080/api/orders/admin", {
+  fetch("https://bakery-backend-hq21.onrender.com/api/orders/admin", {
     headers: { Authorization: "Bearer " + token }
   })
   .then(res => {
