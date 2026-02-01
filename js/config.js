@@ -1,4 +1,4 @@
-const BASE_URL = "https://bakery-backend-thni.onrender.com/api/auth";
+const BASE_URL = "https://bakery-backend-a7vn.onrender.com/api/auth";
 let currentUser = JSON.parse(localStorage.getItem('user') || 'null');
 
 if (!token) {

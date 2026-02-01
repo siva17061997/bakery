@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    const API_BASE = "https://bakery-backend-thni.onrender.com/api/products";
+    const API_BASE = "https://bakery-backend-a7vn.onrender.com/api/products";
 
     // ===============================
     // GET PRODUCT ID

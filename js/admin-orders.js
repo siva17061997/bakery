@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===============================
      LOAD ADMIN ORDERS
   ================================ */
-  fetch("https://bakery-backend-thni.onrender.com/api/orders/admin", {
+  fetch("https://bakery-backend-a7vn.onrender.com/api/orders/admin", {
     headers: { Authorization: "Bearer " + token }
   })
   .then(res => {
