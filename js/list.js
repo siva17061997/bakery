@@ -65,7 +65,7 @@ function renderProducts(list) {
           <img src="${IMAGE_BASE}${p.imageUrl}"
                class="img-fluid"
                onclick="openProduct(${p.id})"
-               onerror="this.src='assets/no-image.png'"
+               onerror="this.onerror=null; this.style.display='none';"
                style="cursor:pointer">
 
           <div class="card-body text-center">
