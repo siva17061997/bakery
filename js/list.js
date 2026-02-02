@@ -20,7 +20,10 @@ function getCartQty(productId) {
 }
 
 const PRODUCT_API = "https://bakery-backend-a7vn.onrender.com/api/products";
-const IMAGE_BASE = "https://bakery-backend-a7vn.onrender.com";
+
+/* ✅ GitHub image base */
+const GITHUB_IMG_BASE =
+  "https://raw.githubusercontent.com/siva17061997/bakery-backend/main/uploads/";
 
 let products = [];
 
@@ -62,7 +65,7 @@ function renderProducts(list) {
       <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
         <div class="card product-card h-100">
 
-          <img src="${IMAGE_BASE}${p.imageUrl}"
+          <img src="${GITHUB_IMG_BASE}${p.imageUrl}"
                class="img-fluid"
                onclick="openProduct(${p.id})"
                onerror="this.src='assets/no-image.png'"
@@ -169,7 +172,7 @@ function addToCartFromList(e, id) {
     price: p.price,
     gst: p.gst || 0,
     qtyType: p.qtyType,
-    imageUrl: IMAGE_BASE + p.imageUrl,
+    imageUrl: GITHUB_IMG_BASE + p.imageUrl,
     maxQty: maxQty
   }, qty);
 }
