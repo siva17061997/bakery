@@ -258,4 +258,4 @@ function applyFilter() {
   });
 
   renderProducts(filtered);
-} 
+}
