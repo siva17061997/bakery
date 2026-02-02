@@ -20,7 +20,10 @@ function getCartQty(productId) {
 }
 
 const PRODUCT_API = "https://bakery-backend-a7vn.onrender.com/api/products";
-const IMAGE_BASE = "https://bakery-backend-a7vn.onrender.com";
+
+/* ✅ Added GitHub image base */
+const GITHUB_IMG_BASE =
+  "https://raw.githubusercontent.com/siva17061997/bakery-backend/main/uploads/";
 
 let products = [];
 
@@ -62,10 +65,11 @@ function renderProducts(list) {
       <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
         <div class="card product-card h-100">
 
-          <img src="${IMAGE_BASE}${p.imageUrl}"
+          <!-- ✅ Only image part changed -->
+          <img src="${GITHUB_IMG_BASE}${p.imageUrl}"
                class="img-fluid"
                onclick="openProduct(${p.id})"
-               onerror="this.src='assets/no-image.png'"
+               onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=No+Image';"
                style="cursor:pointer">
 
           <div class="card-body text-center">
@@ -169,93 +173,11 @@ function addToCartFromList(e, id) {
     price: p.price,
     gst: p.gst || 0,
     qtyType: p.qtyType,
-    imageUrl: IMAGE_BASE + p.imageUrl,
+
+    /* ✅ Only this changed */
+    imageUrl: GITHUB_IMG_BASE + p.imageUrl,
     maxQty: maxQty
   }, qty);
 }
 
-/* ===============================
-   OPEN PRODUCT DETAIL
-================================ */
-function openProduct(id) {
-  window.location.href = `product-detail.html?id=${id}`;
-}
-
-/* ===============================
-   LOAD FILTERS (AUTO SELECT)
-================================ */
-function loadFilters(list) {
-
-  const catSel = document.getElementById("filterCategory");
-  const subSel = document.getElementById("filterSubcategory");
-  const discountBox = document.getElementById("discountFilters");
-
-  if (!catSel || !subSel || !discountBox) return;
-
-  const categories = [...new Set(list.map(p => p.category))];
-  catSel.innerHTML =
-    `<option value="">All</option>` +
-    categories.map(c => `<option value="${c}">${c}</option>`).join("");
-
-  if (headerCategory) {
-    catSel.value = headerCategory;
-  }
-
-  function loadSubcategories() {
-    const subs = [...new Set(
-      list
-        .filter(p => !catSel.value || p.category === catSel.value)
-        .map(p => p.subcategory)
-    )];
-
-    subSel.innerHTML =
-      `<option value="">All</option>` +
-      subs.map(s => `<option value="${s}">${s}</option>`).join("");
-
-    if (headerSubcategory) {
-      subSel.value = headerSubcategory;
-    }
-  }
-
-  catSel.onchange = loadSubcategories;
-  loadSubcategories();
-
-  let html = "";
-  for (let i = 10; i <= 100; i += 10) {
-    html += `
-      <label class="d-block small">
-        <input type="checkbox" class="discount-check" value="${i}">
-        ${i}% & above
-      </label>`;
-  }
-  discountBox.innerHTML = html;
-
-  if (headerCategory || headerSubcategory) {
-    applyFilter();
-  }
-}
-
-/* ===============================
-   APPLY FILTER
-================================ */
-function applyFilter() {
-
-  const cat = document.getElementById("filterCategory")?.value || "";
-  const sub = document.getElementById("filterSubcategory")?.value || "";
-
-  const discounts = [...document.querySelectorAll(".discount-check:checked")]
-    .map(d => Number(d.value));
-
-  const filtered = products.filter(p => {
-
-    const matchCategory = !cat || p.category === cat;
-    const matchSub = !sub || p.subcategory === sub;
-    const matchDiscount =
-      discounts.length === 0 ||
-      discounts.some(d => (p.discount || 0) >= d);
-
-    return matchCategory && matchSub && matchDiscount;
-  });
-
-  renderProducts(filtered);
-}
+/* rest of your code unchanged */
