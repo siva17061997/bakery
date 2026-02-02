@@ -12,8 +12,8 @@ function getCartQty(productId) {
   return item ? item.qty : 0;
 }
 
-const PRODUCT_API = "http://localhost:8080/api/products";
-const IMAGE_BASE = "http://localhost:8080";
+const PRODUCT_API = "https://bakery-backend-a7vn.onrender.com/api/products";
+const IMAGE_BASE = "https://bakery-backend-a7vn.onrender.com";
 
 let products = [];
 
