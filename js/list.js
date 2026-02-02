@@ -21,7 +21,7 @@ function getCartQty(productId) {
 
 const PRODUCT_API = "https://bakery-backend-a7vn.onrender.com/api/products";
 
-/* ✅ Added GitHub image base */
+/* ✅ GitHub RAW base */
 const GITHUB_IMG_BASE =
   "https://raw.githubusercontent.com/siva17061997/bakery-backend/main/uploads/";
 
@@ -65,8 +65,7 @@ function renderProducts(list) {
       <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
         <div class="card product-card h-100">
 
-          <!-- ✅ Only image part changed -->
-          <img src="${GITHUB_IMG_BASE}${p.imageUrl}"
+          <img src="${GITHUB_IMG_BASE}${p.imageUrl.replace('/uploads/','')}"
                class="img-fluid"
                onclick="openProduct(${p.id})"
                onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=No+Image';"
@@ -173,11 +172,45 @@ function addToCartFromList(e, id) {
     price: p.price,
     gst: p.gst || 0,
     qtyType: p.qtyType,
-
-    /* ✅ Only this changed */
-    imageUrl: GITHUB_IMG_BASE + p.imageUrl,
+    imageUrl: GITHUB_IMG_BASE + p.imageUrl.replace('/uploads/',''),
     maxQty: maxQty
   }, qty);
 }
 
-/* rest of your code unchanged */
+/* ===============================
+   OPEN PRODUCT DETAIL
+================================ */
+function openProduct(id) {
+  window.location.href = `product-detail.html?id=${id}`;
+}
+
+/* ===============================
+   LOAD FILTERS
+================================ */
+function loadFilters(list) {
+  const catSel = document.getElementById("filterCategory");
+  const subSel = document.getElementById("filterSubcategory");
+  const discountBox = document.getElementById("discountFilters");
+
+  if (!catSel || !subSel || !discountBox) return;
+
+  const categories = [...new Set(list.map(p => p.category))];
+  catSel.innerHTML =
+    `<option value="">All</option>` +
+    categories.map(c => `<option value="${c}">${c}</option>`).join("");
+
+  function loadSubcategories() {
+    const subs = [...new Set(
+      list
+        .filter(p => !catSel.value || p.category === catSel.value)
+        .map(p => p.subcategory)
+    )];
+
+    subSel.innerHTML =
+      `<option value="">All</option>` +
+      subs.map(s => `<option value="${s}">${s}</option>`).join("");
+  }
+
+  catSel.onchange = loadSubcategories;
+  loadSubcategories();
+}
