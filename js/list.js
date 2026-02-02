@@ -1,11 +1,4 @@
 /* ===============================
-   READ HEADER FILTER PARAMS
-================================ */
-const urlParams = new URLSearchParams(window.location.search);
-const headerCategory = urlParams.get("category") || "";
-const headerSubcategory = urlParams.get("subcategory") || "";
-
-/* ===============================
    GET ALREADY-IN-CART QTY (SAFE)
 ================================ */
 function getCartQty(productId) {
@@ -19,8 +12,8 @@ function getCartQty(productId) {
   return item ? item.qty : 0;
 }
 
-const PRODUCT_API = "https://bakery-backend-a7vn.onrender.com/api/products";
-const IMAGE_BASE = "https://bakery-backend-a7vn.onrender.com";
+const PRODUCT_API = "http://localhost:8080/api/products";
+const IMAGE_BASE = "http://localhost:8080";
 
 let products = [];
 
@@ -33,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
       products = data.content || [];
       renderProducts(products);
-      loadFilters(products);
+      loadFilters(products); // ✅ FIX
     })
     .catch(err => console.error("❌ Product load failed", err));
 });
@@ -80,17 +73,18 @@ function renderProducts(list) {
               <span class="fw-bold">₹${p.price}</span>
               ${
                 p.mrp && p.mrp > p.price
-                  ? `<del class="text-muted ms-2">₹${p.mrp}</del>`
+                  ? `<del class="text-muted ms-2">₹${p.mrp}</del>`  // ✅ STRIKE
                   : ""
               }
             </div>
 
             ${
               p.discount && p.discount > 0
-                ? `<div class="text-danger small mt-1">${p.discount}% OFF</div>`
+                ? `<div class="text-danger small mt-1">${p.discount}% OFF</div>` // ✅ FIX
                 : ""
             }
 
+            <!-- QTY -->
             <div class="qty-box d-flex justify-content-center mt-2">
               <button id="m-${p.id}"
                       onclick="changeQty(event,${p.id},-1)"
@@ -109,6 +103,7 @@ function renderProducts(list) {
               Available: ${maxQty} ${unitLabel}
             </small>
 
+            <!-- ✅ BUTTON ON NEW LINE -->
             <button class="btn btn-success btn-sm w-100 mt-3"
                     onclick="addToCartFromList(event,${p.id})">
               Add to Cart
@@ -182,7 +177,7 @@ function openProduct(id) {
 }
 
 /* ===============================
-   LOAD FILTERS (AUTO SELECT)
+   LOAD FILTERS (🔥 FIXED)
 ================================ */
 function loadFilters(list) {
 
@@ -192,16 +187,16 @@ function loadFilters(list) {
 
   if (!catSel || !subSel || !discountBox) return;
 
+  /* CATEGORY */
   const categories = [...new Set(list.map(p => p.category))];
   catSel.innerHTML =
     `<option value="">All</option>` +
     categories.map(c => `<option value="${c}">${c}</option>`).join("");
 
-  if (headerCategory) {
-    catSel.value = headerCategory;
-  }
+  /* SUBCATEGORY */
+  subSel.innerHTML = `<option value="">All</option>`;
 
-  function loadSubcategories() {
+  catSel.onchange = () => {
     const subs = [...new Set(
       list
         .filter(p => !catSel.value || p.category === catSel.value)
@@ -211,15 +206,9 @@ function loadFilters(list) {
     subSel.innerHTML =
       `<option value="">All</option>` +
       subs.map(s => `<option value="${s}">${s}</option>`).join("");
+  };
 
-    if (headerSubcategory) {
-      subSel.value = headerSubcategory;
-    }
-  }
-
-  catSel.onchange = loadSubcategories;
-  loadSubcategories();
-
+  /* DISCOUNT */
   let html = "";
   for (let i = 10; i <= 100; i += 10) {
     html += `
@@ -229,14 +218,13 @@ function loadFilters(list) {
       </label>`;
   }
   discountBox.innerHTML = html;
-
-  if (headerCategory || headerSubcategory) {
-    applyFilter();
-  }
 }
 
+
+
+
 /* ===============================
-   APPLY FILTER
+   APPLY FILTER (FIXED)
 ================================ */
 function applyFilter() {
 
@@ -248,8 +236,12 @@ function applyFilter() {
 
   const filtered = products.filter(p => {
 
-    const matchCategory = !cat || p.category === cat;
-    const matchSub = !sub || p.subcategory === sub;
+    const matchCategory =
+      !cat || p.category === cat;
+
+    const matchSub =
+      !sub || p.subcategory === sub;
+
     const matchDiscount =
       discounts.length === 0 ||
       discounts.some(d => (p.discount || 0) >= d);
