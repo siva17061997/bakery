@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
       products = data.content || [];
       renderProducts(products);
-      loadFilters(products); // ✅ FIX
+      loadFilters(products);
     })
     .catch(err => console.error("❌ Product load failed", err));
 });
@@ -58,7 +58,7 @@ function renderProducts(list) {
           <img src="${IMAGE_BASE}${p.imageUrl}"
                class="img-fluid"
                onclick="openProduct(${p.id})"
-               onerror="this.src='assets/no-image.png'"
+               onerror="this.onerror=null;"
                style="cursor:pointer">
 
           <div class="card-body text-center">
@@ -73,18 +73,17 @@ function renderProducts(list) {
               <span class="fw-bold">₹${p.price}</span>
               ${
                 p.mrp && p.mrp > p.price
-                  ? `<del class="text-muted ms-2">₹${p.mrp}</del>`  // ✅ STRIKE
+                  ? `<del class="text-muted ms-2">₹${p.mrp}</del>`
                   : ""
               }
             </div>
 
             ${
               p.discount && p.discount > 0
-                ? `<div class="text-danger small mt-1">${p.discount}% OFF</div>` // ✅ FIX
+                ? `<div class="text-danger small mt-1">${p.discount}% OFF</div>`
                 : ""
             }
 
-            <!-- QTY -->
             <div class="qty-box d-flex justify-content-center mt-2">
               <button id="m-${p.id}"
                       onclick="changeQty(event,${p.id},-1)"
@@ -103,7 +102,6 @@ function renderProducts(list) {
               Available: ${maxQty} ${unitLabel}
             </small>
 
-            <!-- ✅ BUTTON ON NEW LINE -->
             <button class="btn btn-success btn-sm w-100 mt-3"
                     onclick="addToCartFromList(event,${p.id})">
               Add to Cart
@@ -115,6 +113,7 @@ function renderProducts(list) {
     `);
   });
 }
+
 
 /* ===============================
    QTY CHANGE
