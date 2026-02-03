@@ -51,11 +51,15 @@ function renderProducts(list) {
     const maxQty = p.quantity > 0 ? p.quantity : 1;
     const unitLabel = p.qtyType === "KG" ? "Kg" : "Piece";
 
+    const imgSrc = p.imageUrl.startsWith('http')
+      ? p.imageUrl
+      : IMAGE_BASE + p.imageUrl;
+
     wrap.insertAdjacentHTML("beforeend", `
       <div class="col-xl-4 col-lg-6 col-md-6 mb-4">
         <div class="card product-card h-100">
 
-          <img src="${IMAGE_BASE}${p.imageUrl}"
+          <img src="${imgSrc}"
                class="img-fluid"
                onclick="openProduct(${p.id})"
                onerror="this.onerror=null;"
@@ -114,7 +118,6 @@ function renderProducts(list) {
   });
 }
 
-
 /* ===============================
    QTY CHANGE
 ================================ */
@@ -157,16 +160,21 @@ function addToCartFromList(e, id) {
     return;
   }
 
+  const imgSrc = p.imageUrl.startsWith('http')
+    ? p.imageUrl
+    : IMAGE_BASE + p.imageUrl;
+
   addToCart({
     productId: p.id,
     name: p.subcategory,
     price: p.price,
     gst: p.gst || 0,
     qtyType: p.qtyType,
-    imageUrl: IMAGE_BASE + p.imageUrl,
+    imageUrl: imgSrc,
     maxQty: maxQty
   }, qty);
 }
+
 
 /* ===============================
    OPEN PRODUCT DETAIL
