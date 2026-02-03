@@ -59,11 +59,15 @@ fetch(`${PRODUCT_API}/${productId}`)
     maxQty = p.quantity > 0 ? p.quantity : 1;
     qty = 1;
 
-    /* IMAGE */
+    /* ✅ IMAGE FIX ONLY */
     if (imgEl) {
-      imgEl.src = IMAGE_BASE + p.imageUrl;
+      const imgSrc = p.imageUrl.startsWith('http')
+        ? p.imageUrl
+        : IMAGE_BASE + p.imageUrl;
+
+      imgEl.src = imgSrc;
       imgEl.onerror = () => {
-        imgEl.src = "assets/no-image.png";
+        imgEl.onerror = null;
       };
     }
 
@@ -124,13 +128,17 @@ document.addEventListener("click", e => {
       return;
     }
 
+    const imgSrc = product.imageUrl.startsWith('http')
+      ? product.imageUrl
+      : IMAGE_BASE + product.imageUrl;
+
     addToCart({
       productId: product.id,
       name: product.subcategory,
       price: product.price,
       gst: product.gst || 0,
       qtyType: product.qtyType,
-      imageUrl: IMAGE_BASE + product.imageUrl,
+      imageUrl: imgSrc,
       maxQty: maxQty
     }, qty);
   }
